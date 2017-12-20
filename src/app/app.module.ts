@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+//import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { DataService } from './data.service';
 
@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
         FormsModule,
         HttpModule,
         AppRoutingModule,
-        Ng4LoadingSpinnerModule.forRoot()
+       // Ng4LoadingSpinnerModule.forRoot()
     ],
     providers: [DataService],
     bootstrap: [AppComponent]
