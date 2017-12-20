@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Logo</a>
+  </div>
+  <div id="navbar" class=" ">
+    <div class="col-xs-9 col-sm-6 col-md-5 col-lg-4 col-xs-right">
+      <form (ngSubmit)="onSubmit($event)" #searchForm="ngForm">
+
+        <div class="input-group">
+          <input type="text" class="form-control" id="name"
+                 placeholder="graypes search"
+                 required
+                 [(ngModel)]="model.name" name="name"
+                 #name="ngModel">
+          <span class="input-group-addon"><button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-search"> </i><!--graypes search--></button></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="col-sm-12" *ngIf="data">
+  <div class="container">
+    <div class="col-sm-12 top-heading">
+      <h3 class="text-center">{{data['paragraph rank'].query}}</h3>
+    </div>
+    <div class="col-sm-12">
+      <div *ngFor="let item of data['paragraph rank'].sources; let myIndex = index">
+        <h4>{{myIndex+1}}. graypes rank max count paragraph of: electric vehicle</h4>
+        <p>
+          {{data['paragraph rank']['graypes rank max count paragraph']}}
+        </p>
+        <p>
+          <span>source : <a href="data['paragraph rank']['graypes rank max count source']">{{data['paragraph rank']['graypes rank max count source']}}</a></span><br />
+          <span><a href="javascript:void(0);">graypes count rank = {{data['paragraph rank']['graypes rank max count']}}</a> | <a href="javascript:void(0);">timestamp = {{data['paragraph rank']['timestamp']}}</a></span>
+        </p>
+       
+
+        <h4>{{myIndex+1}}. graypes rank max frequency paragraph of: electric vehicle</h4>
+        <p>
+          {{data['paragraph rank']['graypes rank max frequency paragraph']}}
+        </p>
+        <p>
+          <span>source : <a href="data['paragraph rank']['graypes rank max frequency source']">{{data['paragraph rank']['graypes rank max frequency source']}}</a></span><br />
+          <span><a href="javascript:void(0);">graypes frequency rank = {{data['paragraph rank']['graypes rank max frequency']}}</a> | <a href="javascript:void(0);">timestamp = {{data['paragraph rank']['timestamp']}}</a></span>
+        </p>
+
+        <!--Hits/Token-->
+        
+        
+        <div *ngFor="let val of item.hits">
+          <h4>{{myIndex+1}}. {{val.query}}</h4>
+        <p>{{val.paragraph}}</p>
+          <!--<span>source : <a href="data['paragraph rank']['graypes rank max frequency source']">{{data['paragraph rank']['graypes rank max frequency source']}}</a></span><br />-->
+          <p>
+            <span><a href="javascript:void(0);">graypes count rank = {{val.tokens['graypes count rank']}}</a> | <a href="javascript:void(0);">graypes frequency rank = {{val.tokens['graypes frequency rank']}}</a></span>
+          </p>
+          </div>
+        <!--close hits/ token-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 no-records" *ngIf="flag == true">
+  <h3>No results found</h3>
+</div>

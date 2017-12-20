@@ -1,0 +1,23 @@
+.input-group-addon {padding:0; border:0; 
+}
+.input-group {
+  margin-bottom: 2px !important;
+} .input-group-addon input {
+  border-radius: 0;
+} .input-group-addon button {
+    border-radius: 0 3px 3px 0;
+    
+  }
+.input-group{margin:10px 0}
+.top-heading {
+  padding-top: 70px;
+}
+.navbar-header {
+float:left}
+.alert-text {
+color:red; font-size:12px}
+
+.no-records {
+  margin-top: 70px;
+  text-align: center;
+}
