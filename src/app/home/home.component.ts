@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 
 @Component({
@@ -13,13 +13,13 @@ export class HomeComponent implements OnInit {
     private model = { 'name': '' };
     private data: any;
     private flag: boolean = false;
-    constructor(private _service: DataService, private _spinnerService: Ng4LoadingSpinnerService) { }
+    constructor(private _service: DataService) { }
 
     ngOnInit() {
     }
 
     onSubmit(events: any) {
-        this._spinnerService.show();
+        //this._spinnerService.show();
         this._service.getData(this.model.name).subscribe((res: any) => {
             if (res.iris)
             {
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
                 this.flag = true;
             }
                 
-            this._spinnerService.hide();
+           // this._spinnerService.hide();
         });
     }
 }
