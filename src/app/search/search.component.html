@@ -8,25 +8,21 @@
   </div>
 </nav>
 
-<div class="col-sm-12">
+<div class="col-md-12">
   <div class="container">
-    <div class="col-sm-12 top-heading">
-      <div class="col-sm-12">
+    <div class="col-md-12 top-heading">
+      <div class="col-md-12">
     <img src="../../assets/img/graypes.png" height="100" />
     </div>
-      <form (ngSubmit)="onSubmit($event)" #searchForm="ngForm">
-        <div class="row">
-         <div class="col-lg-3">      </div>
-        <div class="input-group col-lg-6">
-          <input type="text" class="form-control" id="name"
-                 placeholder="graypes search"
-                 required
-                 [(ngModel)]="model.name" name="name"
-                 #name="ngModel">
-        </div>
-          <div class="col-lg-3">    </div>
-      </div>
-        <button type="submit"  class="btn btn-warning">graypes search</button>
+      <form (ngSubmit)="onSubmit($event)" #searchForm="ngForm" class="form-horizontal">
+          <div class="form-group col-sm-12">
+            <input type="text" class="form-control" id="name" autofocus
+                   placeholder="type your idea and get a business analysis"
+                   required
+                   [(ngModel)]="model.name" name="name"
+                   #name="ngModel"/>
+          </div>
+        <button type="submit" class="btn btn-warning">graypes search</button>
       </form>
     </div>
   </div>

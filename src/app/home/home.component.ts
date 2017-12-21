@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
 
     onSubmit() {
       this.show = true;
-        this._service.getData(this.model.name).subscribe((res: any) => {
+      setTimeout(() => { this.show = false }, 20000);
+      this._service.getData(this.model.name).subscribe((res: any) => {
             if (res.iris)
             {
                 this.data = res.iris;
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
             }
             else {
                 this.flag = true;
-              this.show = false;
+                this.show = false;
             }
         });
     }
