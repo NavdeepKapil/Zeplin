@@ -1,6 +1,8 @@
+
+<spinner-component [spinnerShow]="show"></spinner-component>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
-    <a class="navbar-brand" href="#">Logo</a>
+    <img src="../../assets/img/logo.png" height="38"/>
   </div>
   <div id="navbar" class=" ">
     <div class="col-xs-9 col-sm-6 col-md-5 col-lg-4 col-xs-right">
@@ -12,7 +14,7 @@
                  required
                  [(ngModel)]="model.name" name="name"
                  #name="ngModel">
-          <span class="input-group-addon"><button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-search"> </i><!--graypes search--></button></span>
+          <span class="input-group-addon"><button type="submit" [disabled]="show" class="btn btn-success"><i class="glyphicon glyphicon-search"> </i><!--graypes search--></button></span>
         </div>
       </form>
     </div>
@@ -34,7 +36,7 @@
           <span>source : <a href="data['paragraph rank']['graypes rank max count source']">{{data['paragraph rank']['graypes rank max count source']}}</a></span><br />
           <span><a href="javascript:void(0);">graypes count rank = {{data['paragraph rank']['graypes rank max count']}}</a> | <a href="javascript:void(0);">timestamp = {{data['paragraph rank']['timestamp']}}</a></span>
         </p>
-       
+
 
         <h4>{{myIndex+1}}. graypes rank max frequency paragraph of: electric vehicle</h4>
         <p>
@@ -46,8 +48,8 @@
         </p>
 
         <!--Hits/Token-->
-        
-        
+
+
         <div *ngFor="let val of item.hits">
           <h4>{{myIndex+1}}. {{val.query}}</h4>
         <p>{{val.paragraph}}</p>
